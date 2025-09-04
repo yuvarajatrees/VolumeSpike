@@ -1103,6 +1103,15 @@ def check_volume_condition_backtest(option_security_id, instrument_type, analysi
     except ValueError as e:
         return []
 
+def handler(event, context):
+    print("Starting Netlify Function")
+    # Call your existing main function
+    main_live()
+    return {
+        "statusCode": 200,
+        "body": "Function executed successfully!"
+    }
+
 if __name__ == "__main__":
     mode = input("Enter 'live' for live scanning or 'backtest' for historical backtesting: ").strip().lower()
     if mode == 'live':
