@@ -343,7 +343,7 @@ def send_telegram_alert(candle, ltp, lot_size, is_backtest=False):
     # Construct the formatted message
     message = (
         f"🔥🔥🔥 **Volume Spike {alert_type}** 🔥🔥🔥\n\n"
-        f⚡️ Condition: Volume 10x Done\n"
+        f"⚡️ Condition: Volume 10x Done\n"
         f"📊 Stock: **{candle['SYMBOL']}**\n"
         f"💰 Strike: **{int(candle['STRIKE'])} {candle['TYPE']} ({strike_type})**\n"
         f"📦 Lot Size: {int(lot_size)}\n"
@@ -483,7 +483,6 @@ def get_day_open_price(security_id, exchange_segment, analysis_date):
         "fromDate": analysis_date.strftime('%Y-%m-%d'),
         "toDate": analysis_date.strftime('%Y-%m-%d')
     }
-    
     try:
         response = requests.post(INTRADAY_URL, json=payload, headers=headers)
         
@@ -666,7 +665,7 @@ def pre_compute_fixed_strikes():
                     'lot_size': lot_size
                 })
             else:
-                print(f"  > Warning: Could not find security ID for {underlying_symbol} {strike} {option_type}. Skipping.")
+                print(f"  > Warning: Could not find security ID for {underlying_symbol} {strike} {option_type}. Skipping.")
         
         computed_strikes[underlying_symbol] = {
             'expiry': expiry_date_str,
@@ -971,7 +970,7 @@ def main_backtest():
                     
                     all_backtest_alerts.append(candle)
             else:
-                print(f"  > Error: Could not find security ID in CSV for {underlying_symbol} {strike} {option_type}.")
+                print(f"  > Error: Could not find security ID in CSV for {underlying_symbol} {strike} {option_type}.")
     
     if all_backtest_alerts:
         try:
