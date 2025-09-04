@@ -1111,12 +1111,3 @@ def handler(event, context):
         "statusCode": 200,
         "body": "Function executed successfully!"
     }
-
-if __name__ == "__main__":
-    mode = input("Enter 'live' for live scanning or 'backtest' for historical backtesting: ").strip().lower()
-    if mode == 'live':
-        main_live()
-    elif mode == 'backtest':
-        main_backtest()
-    else:
-        print("Invalid mode. Please enter 'live' or 'backtest'.")
